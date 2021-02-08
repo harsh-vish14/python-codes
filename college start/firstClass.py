@@ -23,7 +23,6 @@ for i in list_obj:
     if i.name in req:
         i.do_capi(i.name)
     i.print_data()
-5 = buzz and 3 = fizz
 
 
 def fizzbuzz(number):
