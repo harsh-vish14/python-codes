@@ -2,10 +2,36 @@
 
 # a. Write a program to implement comments, datatypes, expressions, Input & Output functions
 
+# datatypes
 dataTypes = [12, 1.3, True, 'string', {'key': 'value'}]
-# VariableName = [Integer , Float, bool, string, dictionary]
-for data in dataTypes:
-    print(type(data))
+print(type(dataTypes[0]))  # interger
+print(type(dataTypes[1]))  # FLoat
+print(type(dataTypes[2]))  # bool
+print(type(dataTypes[3]))  # String
+print(type(dataTypes[4]))  # dictionary
+
+# expressions
+num1 = 2
+num2 = 3
+
+print(num1 + num2)
+print(num1 - num2)
+print(num1 % num2)
+print(num1 / num2)
+print(num1 * num2)
+print(num1 ** num2)
+# logical expression
+print(num1 == num2)
+print(num1 != num2)
+print(num1 <= num2)
+print(num1 >= num2)
+print(num1 < num2)
+print(num1 > num2)
+#  input
+inputed = input('> ')
+# output
+print(inputed)
+
 
 
 # b. WAP to find the GCD and LCM of any two numbers
