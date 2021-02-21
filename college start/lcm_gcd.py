@@ -11,8 +11,8 @@ print(type(dataTypes[3]))  # String
 print(type(dataTypes[4]))  # dictionary
 
 # expressions
-num1 = 2
-num2 = 3
+num1 = 4
+num2 = 5
 
 print(num1 + num2)
 print(num1 - num2)
