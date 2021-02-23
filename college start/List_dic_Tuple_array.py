@@ -1,6 +1,6 @@
 # Write python programs to understand List, Tuple, Dictionary and Arrays
-# List examples:
 
+# List examples:
 # Create list of from 0 to 20 and remove odd element from the list
 def checkEven(number):
     if (number % 2 == 0):
@@ -86,3 +86,13 @@ print(dicMeaning['newData'])
 for key in dicMeaning:
     print(f'Key: {key}')
     print(f'Value: {dicMeaning[key]}')
+
+# Array examples:
+import array as arr
+numbers = arr.array('i', [1, 2, 3, 5, 7, 10])
+# changing first element
+numbers[0] = 0
+print(numbers)     # Output: array('i', [0, 2, 3, 5, 7, 10])
+# changing 3rd to 5th element
+numbers[2:5] = arr.array('i', [4, 6, 8])
+print(numbers)     # Output: array('i', [0, 2, 4, 6, 8, 10])

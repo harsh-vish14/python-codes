@@ -11,4 +11,10 @@ def gradeGiven(number):
         return 'Fail'
 
 
+print(gradeGiven(91))
+print(gradeGiven(94))
+print(gradeGiven(100))
 print(gradeGiven(70))
+print(gradeGiven(80))
+print(gradeGiven(85))
+print(gradeGiven(80))
