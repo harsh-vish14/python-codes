@@ -1,6 +1,6 @@
 # Python program to divide two
 # unsigned integers using
-# Non-Restoring Division Algorithm
+# Restoring Division Algorithm
 
 # Function to add two binary numbers
 def add(A, M):
@@ -41,7 +41,7 @@ def compliment(m):
         # Computing the compliment
         M += str((int(m[i]) + 1) % 2)
 
-    # Adding 1 to the computed
+        # Adding 1 to the computed
     # value
     M = add(M, '0001')
     return M
@@ -49,18 +49,11 @@ def compliment(m):
 
 # Function to find the quotient
 # and remainder using the
-# Non-Restoring Division Algorithm
-def nonRestoringDivision(Q, M, A):
+# Restoring Division Algorithm
+def restoringDivision(Q, M, A):
     # Computing the length of the
     # number
     count = len(M)
-
-    comp_M = compliment(M)
-
-    # Variable to determine whether
-    # addition or subtraction has
-    # to be computed for the next step
-    flag = 'successful'
 
     # Printing the initial values
     # of the accumulator, dividend
@@ -73,60 +66,62 @@ def nonRestoringDivision(Q, M, A):
     while (count):
 
         # Printing the values at every step
-        print("\nstep:", len(M) - count + 1,
-              end='')
+        print("\nstep:", len(M) - count + 1, end='')
 
         # Step1: Left Shift, assigning LSB of Q
         # to MSB of A.
-        print(' Left Shift and ', end='')
+        print(' Left Shift and Subtract: ', end='')
         A = A[1:] + Q[0]
 
-        # Choosing the addition
-        # or subtraction based on the
-        # result of the previous step
-        if (flag == 'successful'):
-            A = add(A, comp_M)
-            print('subtract: ')
-        else:
-            A = add(A, M)
-            print('Addition: ')
+        # Step2: Subtract the Divisor from A
+        # (Perform A - M).
+        comp_M = compliment(M)
 
-        print('A:', A, ' Q:',
-              Q[1:] + '_', end='')
+        # Taking the complement of M and
+        # adding to A.
+        A = add(A, comp_M)
+        print(' A:', A)
+        print('A:', A, ' Q:', Q[1:] + '_', end='')
 
         if (A[0] == '1'):
 
-            # Step is unsuccessful and the
-            # quotient bit will be '0'
+            # The step is unsuccessful
+            # and the quotient bit
+            # will be '0'
             Q = Q[1:] + '0'
-            print(' -Unsuccessful')
+            print('  -Unsuccessful')
 
-            flag = 'unsuccessful'
-            print('A:', A, ' Q:', Q,
-                  ' -Addition in next Step')
+            # Restoration of A is required
+            A = add(A, M)
+            print('A:', A, ' Q:', Q, ' -Restoration')
 
         else:
 
-            # Step is successful and the quotient
-            # bit will be '1'
+            # Else, the step is successful
+            # and the quotient bit
+            # will be '1'
             Q = Q[1:] + '1'
             print(' Successful')
 
-            flag = 'successful'
-            print('A:', A, ' Q:', Q,
-                  ' -Subtraction in next step')
+            # No Restoration of A.
+            print('A:', A, ' Q:',
+                  Q, ' -No Restoration')
         count -= 1
+
+    # Printing the final quotient
+    # and remainder of the given
+    # dividend and divisor.
     print('\nQuotient(Q):', Q,
           ' Remainder(A):', A)
 
 
 # Driver code
 if __name__ == "__main__":
-    dividend = '10011'
-    divisor = '00100'
+    dividend = '1001'
+    divisor = '1101'
 
     accumulator = '0' * len(dividend)
 
-    nonRestoringDivision(dividend,
-                         divisor,
-                         accumulator)
+    restoringDivision(dividend,
+                      divisor,
+                      accumulator)
