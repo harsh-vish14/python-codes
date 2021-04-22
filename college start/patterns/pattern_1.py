@@ -5,7 +5,7 @@ def createAPramide (n):
         , 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
     ]
     alphabets.reverse()
-    numbersOfRows = 7
+
     k = n - 1
     for i in range(0, n):
         for j in range(0, k):
@@ -22,3 +22,12 @@ def createAPramide (n):
         print("\r")
 
 createAPramide(4)
+
+"""
+output:
+
+   * 
+  A B 
+ * * * 
+A B C D 
+"""
