@@ -13,3 +13,10 @@ def createAPramide (n):
         print("\r")
 
 createAPramide(4)
+
+"""
+   0 
+  1 0 
+ 0 1 0 
+1 0 1 0 
+"""
