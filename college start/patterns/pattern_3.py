@@ -15,6 +15,8 @@ def createAPramide (n):
 createAPramide(4)
 
 """
+output:
+
    0 
   1 0 
  0 1 0 
